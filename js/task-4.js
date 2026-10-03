@@ -4,18 +4,17 @@ const form = document.querySelector('.login-form');
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const allFields = [...form.elements].every(
-    element => element.value.trim() !== ''
-  );
-  if (allFields === false) {
+  const email = form.elements.email;
+  const password = form.elements.password;
+  if (email.value.trim() === '' || password.value.trim() === '') {
     alert('All form fields must be filled in');
-  } else {
-    const userData = {};
-    const formData = new FormData(form);
-    formData.forEach((value, key) => {
-      userData[key] = value.trim();
-    });
-    console.log(userData);
-    form.reset();
+    return;
   }
+  const userData = {};
+  const formData = new FormData(form);
+  formData.forEach((value, key) => {
+    userData[key] = value.trim();
+  });
+  console.log(userData);
+  form.reset();
 });

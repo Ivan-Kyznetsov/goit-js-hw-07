@@ -36,5 +36,5 @@ images.forEach(image => {
   img.alt = image.alt;
   li.append(img);
   galleryItems.push(li);
-  gallery.append(...galleryItems);
 });
+gallery.append(...galleryItems);
